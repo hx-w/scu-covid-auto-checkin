@@ -70,3 +70,7 @@ on:
   schedule:
     - cron: '0 0 * * *'
 ```
+
+**由于Github Actions资源有限，以上时间为开始排队等待分配服务器的时间，实际触发打卡脚本的时间要比定时的时间晚10-20分钟左右**
+修改`.github/workflows/auto-checkin.ym
+修改`.github/workflows/auto-checkin.yml`
