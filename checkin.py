@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
 import os
 import re
 import json
@@ -17,8 +16,7 @@ def generate_cookies_dict() -> dict:
         }
         return cookies_dict
     except Exception as ept:
-        print(f'[ERROR] 运行错误：{ept}')
-        exit()
+        raise Exception(f'[ERROR] {ept}')
 
 
 def modify_json(res_json: dict) -> dict:
@@ -49,15 +47,13 @@ def checkin(cookies_dict: dict):
     session.cookies = cookiesJar
     resp = session.get(url=url)
     if resp.status_code != 200:
-        print('[ERROR]', resp.status_code)
-        exit()
+        raise Exception(f'[ERROR] response status: {resp.status_code}')
 
     html = resp.content.decode('utf-8')
     pattern = re.compile('var def =(.*);!?')
     res = re.findall(pattern, html)
     if len(res) == 0:
-        print('[ERROR] not found')
-        exit()
+        raise Exception('[ERROR] user templates not found')
     res_json = json.loads(res[0])
     
     # load geo info & modify data
