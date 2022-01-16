@@ -1,3 +1,11 @@
+
+** 这个项目写的很shit，不打算继续维护了。
+如果很想用自动打卡的功能，请联系开发者，并移步 >> [scubot](https://www.scubot.com) << 
+
+除此之外，如果有青年大学习skip需求的，可以考虑我另一个仓库 >> [qndxx](https://github.com/hx-w/qdnxx) <<
+
+**
+
 # **四川大学健康每日报自动打卡工作流**
 
 ![auto-checkin](https://github.com/hx-w/scu-covid-auto-checkin/workflows/auto-checkin/badge.svg)
