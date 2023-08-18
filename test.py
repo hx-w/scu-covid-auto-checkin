@@ -4,7 +4,7 @@ import re
 import requests
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
 }
 
 def test():
@@ -17,7 +17,9 @@ def test():
     assert len(res) > 0
     dxx_img = res[0].replace('m.html', 'images/end.jpg').replace('index.html', 'images/end.jpg')
     pattern = re.compile('<title>(.*?)</title>')
-    print('===>', res[0], res)
+
+    HEADERS['Host'] = 'h5.cyol.com'
+    HEADERS['Referer'] = res[0]
     resp = requests.get(res[0], headers=HEADERS)
     assert resp.status_code == 200
     res = re.findall(pattern, resp.content.decode('utf-8'))
