@@ -17,6 +17,7 @@ def test():
     assert len(res) > 0
     dxx_img = res[0].replace('m.html', 'images/end.jpg').replace('index.html', 'images/end.jpg')
     pattern = re.compile('<title>(.*?)</title>')
+    print('===>', res[0], res)
     resp = requests.get(res[0], headers=HEADERS)
     assert resp.status_code == 200
     res = re.findall(pattern, resp.content.decode('utf-8'))
